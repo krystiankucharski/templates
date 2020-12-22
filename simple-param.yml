@@ -1,0 +1,50 @@
+stages:
+- stage: Build
+  displayName: "Build Applications"
+  jobs:
+  - job: run_build
+    pool:
+      vmImage: 'Ubuntu 16.04'
+    steps:
+    - script: echo Build Applications
+    - script: echo 1
+    - script: echo 2
+    - script: echo 3
+  - job: run_build2
+    pool:
+      vmImage: 'Ubuntu 16.04' 
+    steps:
+      - script: echo Build Applications job run_build2
+
+ 
+- stage: Test
+  displayName: "Run tests for apps"
+  jobs:
+  - job: run_tests
+    pool:
+      vmImage: 'Ubuntu 16.04'
+    steps:
+    - script: echo Run applications tests
+ 
+ 
+- stage: Develop
+  displayName: "Deploy to the Develop"
+  jobs:
+  - job: deploy_develop
+    pool:
+      vmImage: 'Ubuntu 16.04'
+    steps:
+    - script: echo create infrastructure
+    - script: echo deploy develop
+ 
+ 
+ 
+- stage: QA
+  displayName: "Deploy to the QA"
+  jobs:
+  - job: deploy_qa
+    pool:
+      vmImage: 'Ubuntu 16.04'
+    steps:
+    - script: echo create infrastructure
+    - script: echo deploy qa
